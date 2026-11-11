@@ -14,3 +14,13 @@
 .live-section .anime-card>a{display:block;height:100%}
 .live-section .anime-card .poster-wrap{height:250px}
 @media(max-width:620px){.live-section .anime-card .poster-wrap{height:210px}}
+
+/* AniGlow detail-page fan review panel */
+.community-reviews{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.community-reviews h3{font:600 19px 'Space Grotesk';margin:0 0 14px}
+.fan-review{padding:14px;margin:10px 0;border:1px solid var(--line);border-radius:11px;background:#160f25}
+.fan-review strong{font-size:12px;color:#f3d5ff}
+.fan-review p{font-size:12px;line-height:1.7;color:#c2b4d2}
+.fan-review a{font-size:11px;color:#e4b6ff}
+.live-anime-card{cursor:pointer}
+.live-anime-card:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
