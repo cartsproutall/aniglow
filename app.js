@@ -62,7 +62,7 @@ function readList(){try{return JSON.parse(localStorage.getItem('aniglow-watchlis
 function saveList(){try{localStorage.setItem('aniglow-watchlist',JSON.stringify(s.watchlist))}catch{status('Your browser could not save the watchlist.',true)}}
 function esc(v=''){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function status(msg,err=false){e.status.textContent=msg;e.status.classList.toggle('error',err)}
-function makeParams(){let p=new URLSearchParams({page:String(s.page),limit:'25',sfw:'true'}),q=e.search.value.trim();if(q)p.set('q',q);if(e.genre.value)p.set('genres',e.genre.value);if(e.type.value)p.set('type',e.type.value);if(e.year.value){p.set('start_date',e.year.value+'-01-01');p.set('end_date',e.year.value+'-12-31')}let sort=e.sort.value;if(sort==='score'){p.set('order_by','score');p.set('sort','desc')}else if(sort==='title'){p.set('order_by','title');p.set('sort','asc')}else{p.set('order_by','popularity');p.set('sort','asc')}return p}
+function makeParams(){let p=new URLSearchParams({page:String(s.page),limit:'25',sfw:'true'}),q=e.search.value.trim();if(q)p.set('q',q);if(e.genre.value)p.set('genres',e.genre.value);if(e.type.value)p.set('type',e.type.value);if(e.year.value){p.set('start_date',e.year.value+'-01-01');p.set('end_date',e.year.value+'-12-31')}let sort=e.sort.value;if(sort==='score'){p.set('order_by','score');p.set('sort','desc')}else if(sort==='title'){p.set('order_by','title');p.set('sort','asc')}else{p.set('order_by','popularity');p.set('sort','desc')}return p}
 function localResults(){let q=e.search.value.trim().toLowerCase(),items=seed.filter(a=>(!q||a.title.toLowerCase().includes(q))&&(!e.year.value||String(a.year)===e.year.value)&&(!e.type.value||a.type.toLowerCase()===e.type.value)&&(!e.genre.value||a.genres.some(g=>({1:'Action',2:'Adventure',4:'Comedy',8:'Drama',10:'Fantasy',14:'Horror',7:'Mystery',22:'Romance',24:'Sci-Fi',30:'Sports',37:'Supernatural'}[e.genre.value]||'')===g.name)));if(e.sort.value==='title')items.sort((a,b)=>a.title.localeCompare(b.title));return items}
 function cards(items,target,append=false){if(!items.length){if(!append)target.innerHTML='';return}const markup=items.map(a=>{let id=Number(a.mal_id),saved=s.watchlist.some(x=>Number(x.mal_id)===id),img=a.images?.jpg?.large_image_url||a.images?.webp?.large_image_url||a.images?.jpg?.image_url||a.images?.webp?.image_url||a.images?.jpg?.small_image_url||a.images?.webp?.small_image_url||'',title=a.title_english||a.title||'Untitled anime',tags=(a.genres||[]).slice(0,2).map(g=>'<span class="tag">'+esc(g.name)+'</span>').join(''),year=a.year||(a.aired?.from?new Date(a.aired.from).getFullYear():'Year N/A');return '<article class="anime-card" data-id="'+id+'" tabindex="0" role="button" aria-label="View '+esc(title)+' details"><div class="poster-wrap">'+(img?'<img src="'+esc(img)+'" alt="'+esc(title)+' poster" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.insertAdjacentHTML(\'afterbegin\',\'<div class=\\\'poster-fallback\\\'>✦</div>\')">':'<div class="poster-fallback">✦</div>')+(a.score?'<span class="score">★ '+esc(a.score)+'</span>':'')+'<button class="heart-btn '+(saved?'saved':'')+'" data-save="'+id+'" aria-label="Toggle watchlist" type="button">'+(saved?'♥':'♡')+'</button></div><div class="card-info"><h3 class="card-title">'+esc(title)+'</h3><div class="card-meta"><span>'+esc(String(year))+'</span><span>'+esc(a.type||'Anime')+' · '+esc(a.episodes==null?'Details':a.episodes+' eps')+'</span></div><div class="tag-row">'+tags+'</div></div></article>'}).join('');if(append)target.insertAdjacentHTML('beforeend',markup);else target.innerHTML=markup}
 function showLocal(){s.apiFailed=true;let all=localResults(),start=(s.page-1)*25,visible=all.slice(start,start+25);s.items=all;s.lastPage=Math.max(1,Math.ceil(all.length/25));cards(visible,e.grid);e.summary.textContent=all.length+' curated titles · starter library';e.page.textContent=(s.page>1?'Pages 1–'+s.page:'Page 1')+' of '+s.lastPage;e.prev.disabled=s.page<=1;e.next.disabled=s.page>=s.lastPage;status('Showing AniGlow’s built-in starter library. Live catalogue will return when the external service is available.')}
@@ -71,6 +71,43 @@ function lookup(id){return s.items.find(a=>Number(a.mal_id)===id)||seed.find(a=>
 function toggle(id){let i=s.watchlist.findIndex(a=>Number(a.mal_id)===id);if(i>=0)s.watchlist.splice(i,1);else{let a=lookup(id);if(a)s.watchlist.unshift(a)}saveList();if(s.apiFailed)showLocal();else cards(s.items,e.grid);renderList()}
 function renderList(){cards(s.watchlist,e.watchGrid);e.watchEmpty.hidden=s.watchlist.length>0}
 function details(a){if(!a)return;let title=a.title_english||a.title||'Anime details',img=a.images?.webp?.image_url||a.images?.jpg?.image_url||a.images?.webp?.small_image_url||a.images?.jpg?.small_image_url||a.images?.webp?.large_image_url||a.images?.jpg?.large_image_url||'',yt=a.trailer?.youtube_id,url=yt?'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(yt):'',tags=(a.genres||[]).map(g=>'<span class="tag">'+esc(g.name)+'</span>').join(''),saved=s.watchlist.some(x=>Number(x.mal_id)===Number(a.mal_id));e.detail.innerHTML='<div class="detail-layout">'+(img?'<img src="'+esc(img)+'" alt="'+esc(title)+' poster" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.insertAdjacentHTML(\'afterbegin\',\'<div class=\\\'poster-fallback\\\'>✦</div>\')">':'<div class="poster-fallback">✦</div>')+'<div><div class="eyebrow">'+esc(a.type||'ANIME')+' · '+esc(String(a.year||''))+'</div><h2>'+esc(title)+'</h2><div class="card-meta"><span>★ '+(a.score??'Not rated')+'</span><span>'+esc(a.status||'Status varies')+'</span><span>'+esc(a.episodes==null?'Episode count varies':a.episodes+' episodes')+'</span></div><div class="tag-row">'+tags+'</div><p>'+esc(a.synopsis||'No synopsis is available.')+'</p><div class="detail-actions"><button type="button" id="detailSave">'+(saved?'♥ Saved to watchlist':'♡ Add to watchlist')+'</button><a href="'+esc(a.url||'https://myanimelist.net/anime/'+a.mal_id)+'" target="_blank" rel="noopener noreferrer">View on MyAnimeList ↗</a></div></div></div>'+(url?'<div class="trailer"><iframe src="'+url+'" title="'+esc(title)+' trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>':'<p class="data-note">A trailer link is shown when available from the live catalogue.</p>');e.dialog.showModal();$('detailSave').addEventListener('click',()=>{toggle(Number(a.mal_id));details(a)})}
+
+async function openAnimeDetails(id){
+  let item=lookup(id);
+  if(item){details(item);loadCommunityReviews(id);return}
+  try{
+    status('Loading anime details…');
+    const response=await fetch(API+'/'+id+'/full',{headers:{Accept:'application/json'}});
+    if(!response.ok)throw Error('Details unavailable');
+    const json=await response.json();
+    if(json.data){s.items.unshift(json.data);details(json.data);loadCommunityReviews(id)}
+    else status('Anime details are temporarily unavailable.',true);
+  }catch(err){status('Could not load anime details. Please try again.',true)}
+}
+async function loadCommunityReviews(id){
+  const host=e.detail;
+  const old=host.querySelector('.community-reviews');if(old)old.remove();
+  const panel=document.createElement('section');panel.className='community-reviews';
+  panel.innerHTML='<h3>Community reviews</h3><p class="data-note">Loading public fan reviews…</p>';
+  host.append(panel);
+  try{
+    const response=await fetch(API+'/'+id+'/reviews?preliminary=true&page=1',{headers:{Accept:'application/json'}});
+    if(!response.ok)throw Error('Reviews unavailable');
+    const json=await response.json(),reviews=(json.data||[]).slice(0,3);
+    if(!reviews.length){panel.innerHTML='<h3>Community reviews</h3><p class="data-note">No public reviews are available for this title yet.</p>';return}
+    panel.innerHTML='<h3>What fans are saying</h3>'+reviews.map(r=>'<article class="fan-review"><strong>'+esc(r.user?.username||'Anime fan')+'</strong><p>'+esc((r.review||'').replace(/<[^>]*>/g,' ').slice(0,420))+'</p>'+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer">Read full review ↗</a>':'')+'</article>').join('');
+  }catch(err){panel.innerHTML='<h3>Community reviews</h3><p class="data-note">Fan reviews could not be loaded right now. Please try again later.</p>'}
+}
+['popularGrid','airingGrid','episodesGrid','upcomingGrid'].forEach(id=>{
+  const grid=$(id);if(!grid)return;
+  grid.addEventListener('click',ev=>{
+    const card=ev.target.closest('[data-id]');
+    if(card){ev.preventDefault();openAnimeDetails(Number(card.dataset.id))}
+  });
+  grid.addEventListener('keydown',ev=>{
+    if((ev.key==='Enter'||ev.key===' ')&&ev.target.matches('[data-id]')){ev.preventDefault();openAnimeDetails(Number(ev.target.dataset.id))}
+  });
+});
 function schedule(){clearTimeout(s.timer);s.page=1;s.timer=setTimeout(()=>{if(s.apiFailed)showLocal();else load()},700)}
 e.grid.addEventListener('click',ev=>{let b=ev.target.closest('[data-save]');if(b){ev.stopPropagation();toggle(Number(b.dataset.save));return}let c=ev.target.closest('[data-id]');if(c)details(lookup(Number(c.dataset.id)))});
 e.grid.addEventListener('keydown',ev=>{if((ev.key==='Enter'||ev.key===' ')&&ev.target.matches('[data-id]')){ev.preventDefault();details(lookup(Number(ev.target.dataset.id)))}});
