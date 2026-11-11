@@ -13,12 +13,13 @@
   <link rel="preconnect" href="https://cdn.myanimelist.net">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
+  <script src="updates.js" defer></script>
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="topbar">
     <a class="brand" href="#home" aria-label="AniGlow home"><span class="brand-mark">✦</span><span>Ani<span>Glow</span></span></a>
-    <nav><a href="#discover">Discover</a><a href="#watchlist">My Watchlist</a><a href="#community">Community</a></nav>
+    <nav><a href="#discover">Discover</a><a href="#airing">Airing now</a><a href="#episodes">New episodes</a><a href="#upcoming">Upcoming</a><a href="#watchlist">Watchlist</a></nav>
     <a class="top-cta" href="#discover">Explore anime <span>↗</span></a>
   </header>
   <main id="home">
@@ -30,6 +31,9 @@
         <label>YEAR<select id="yearFilter"><option value="">All years</option></select></label><label>FORMAT<select id="typeFilter"><option value="">All formats</option><option value="tv">TV</option><option value="movie">Movie</option><option value="ova">OVA</option><option value="special">Special</option><option value="ona">ONA</option><option value="music">Music</option></select></label><label>SORT BY<select id="sortFilter"><option value="popularity">Most popular</option><option value="score">Highest rated</option><option value="title">A–Z title</option></select></label></div><div class="filter-bottom"><span id="resultSummary">Loading anime catalogue…</span><button id="clearFilters" class="text-button" type="button">Clear filters ↺</button></div></div>
       <div id="statusMessage" class="status-message" role="status" aria-live="polite">Connecting to the anime catalogue…</div><div id="animeGrid" class="anime-grid" aria-live="polite"></div><div class="pagination"><button id="prevPage" class="page-btn" type="button" disabled>← Previous</button><span id="pageLabel">Page 1</span><button id="nextPage" class="page-btn" type="button">Next →</button></div><p class="data-note">Catalogue data provided by the Jikan API, an unofficial MyAnimeList data API. Availability and results may vary.</p>
     </section>
+    <section class="section live-section" id="airing"><div class="section-heading"><div><div class="eyebrow">THIS SEASON</div><h2>Currently <span>airing.</span></h2><p>Anime listed for the current season, refreshed from the live catalogue.</p></div><span class="live-pill"><span class="pulse"></span> LIVE DATA</span></div><div id="airingGrid" class="anime-grid"></div><p id="airingStatus" class="data-note">Loading current season…</p></section>
+    <section class="section live-section" id="episodes"><div class="section-heading"><div><div class="eyebrow">FRESH FROM THE FEED</div><h2>Latest <span>episodes & promos.</span></h2><p>Recently indexed episode-related updates and official promo clips where available.</p></div><button class="page-btn" id="refreshLive" type="button">↻ Refresh updates</button></div><div id="episodesGrid" class="anime-grid"></div><p id="episodesStatus" class="data-note">Loading recent episode updates…</p></section>
+    <section class="section live-section" id="upcoming"><div class="section-heading"><div><div class="eyebrow">ON THE HORIZON</div><h2>Coming <span>soon.</span></h2><p>Upcoming anime entries currently listed by the catalogue.</p></div></div><div id="upcomingGrid" class="anime-grid"></div><p id="upcomingStatus" class="data-note">Loading upcoming anime…</p></section>
     <section class="watchlist-section section" id="watchlist"><div class="section-heading compact"><div><div class="eyebrow">KEEP YOUR PICKS CLOSE</div><h2>Your <span>watchlist.</span></h2><p>Saved on this device so you can come back to them later.</p></div></div><div id="watchlistGrid" class="anime-grid watchlist-grid"></div><div id="watchlistEmpty" class="empty-state"><span>♡</span><h3>Your list is waiting</h3><p>Tap the heart on any anime to save it here.</p><a href="#discover">Explore the catalogue →</a></div></section>
     <section class="community section" id="community"><div class="community-card"><div class="community-symbol">✧</div><div><div class="eyebrow">A PLACE FOR FANS</div><h2>Every story deserves<br><span>to be shared.</span></h2><p>The community corner is being prepared. Public reviews and discussions will arrive after secure accounts and moderation are in place.</p><span class="coming-soon">COMMUNITY FEATURES COMING SOON</span></div></div></section>
   </main>
