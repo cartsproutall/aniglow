@@ -4,3 +4,7 @@
 
 /* Live catalogue sections */
 .live-section{padding-top:42px}.live-section .anime-grid:empty{min-height:70px}.live-section .status-message{margin-top:12px}.live-section .page-btn{align-self:center}.episode-meta{font-size:10px;color:#bca9d0;margin-top:8px;line-height:1.5}.live-update-time{font-size:10px;color:#9d8bad;text-align:right;margin-top:12px}@media(max-width:620px){.topbar nav{display:none}.live-section{padding-top:38px}}
+
+/* Faster, resilient poster rendering */
+.poster-wrap img{background:#241735;object-fit:cover}
+.poster-fallback{position:absolute;inset:0;min-height:100%;background:linear-gradient(135deg,#38204e,#21152e)}
