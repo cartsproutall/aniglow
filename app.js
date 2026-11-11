@@ -55,7 +55,7 @@ const seed=[
 [50602,"The Eminence in Shadow",2022,"TV","Action, Fantasy","A young man pursues his fantasy of operating from the shadows."],
 [50709,"Heavenly Delusion",2023,"TV","Adventure, Mystery","Two young travelers explore a mysterious post-apocalyptic world."],
 [52347,"The Dangers in My Heart Season 2",2024,"TV","Romance, Comedy","An awkward friendship develops into a deeper relationship."],
-[54865,"The Apothecary Diaries Season 2",2025,"TV","Drama, Mystery","Maomao continues solving mysteries within the imperial court."]].map(([mal_id,title,year,type,genreText,synopsis])=>({mal_id,title,title_english:title,year,type,episodes:null,score:null,synopsis,url:'https://myanimelist.net/anime/'+mal_id,genres:genreText.split(', ').map(name=>({name})),images:{}}));
+[54865,"The Apothecary Diaries Season 2",2025,"TV","Drama, Mystery","Maomao continues solving mysteries within the imperial court."]].map(([mal_id,title,year,type,genreText,synopsis])=>({mal_id,title,title_english:title,year,type,episodes:null,score:null,synopsis,url:'https://myanimelist.net/anime/'+mal_id,genres:genreText.split(', ').map(name=>({name})),images:{}})).filter((item,index,all)=>all.findIndex(x=>x.mal_id===item.mal_id)===index);
 const s={page:1,lastPage:1,items:seed.slice(),timer:null,requestId:0,watchlist:readList(),apiFailed:false};
 for(let y=new Date().getFullYear();y>=1980;y--){let o=document.createElement('option');o.value=String(y);o.textContent=String(y);e.year.append(o)}
 function readList(){try{return JSON.parse(localStorage.getItem('aniglow-watchlist')||'[]')}catch{return[]}}
