@@ -24,3 +24,6 @@
 .fan-review a{font-size:11px;color:#e4b6ff}
 .live-anime-card{cursor:pointer}
 .live-anime-card:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+/* Fast first paint and responsive image tiles */
+html{background:#10091f}body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}.anime-card,.filter-panel{content-visibility:auto;contain-intrinsic-size:340px}.poster-wrap{aspect-ratio:2/3;height:auto!important;min-height:0}.poster-wrap img{width:100%;height:100%;aspect-ratio:2/3;object-fit:cover}.live-section .anime-card .poster-wrap{height:auto!important}.detail-layout img{aspect-ratio:2/3;object-fit:cover}
