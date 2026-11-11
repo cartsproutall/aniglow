@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#180d32">
+  <meta name="description" content="Discover anime across decades. Search titles, explore genres, save your watchlist and find official trailers.">
+  <meta property="og:title" content="AniGlow — Find Your Next Anime Obsession">
+  <meta property="og:description" content="Explore anime by title, genre, year and format. Save favourites and discover trailers.">
+  <meta property="og:type" content="website">
+  <title>AniGlow — Find Your Next Anime Obsession</title>
+  <link rel="preconnect" href="https://api.jikan.moe">
+  <link rel="preconnect" href="https://cdn.myanimelist.net">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="AniGlow home"><span class="brand-mark">✦</span><span>Ani<span>Glow</span></span></a>
+    <nav><a href="#discover">Discover</a><a href="#watchlist">My Watchlist</a><a href="#community">Community</a></nav>
+    <a class="top-cta" href="#discover">Explore anime <span>↗</span></a>
+  </header>
+  <main id="home">
+    <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> YOUR NEXT ADVENTURE STARTS HERE</div><h1>Find your next<br><span>anime obsession.</span></h1><p>From timeless classics to the latest sensations — explore stories worth getting lost in.</p><a class="primary-btn" href="#discover">Discover anime <span>↓</span></a><div class="hero-notes"><span>✧ Thousands of titles to explore</span><span>✧ Your personal watchlist</span></div></div><div class="hero-art" aria-label="Anime inspired abstract artwork"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="hero-glow"></div><div class="hero-star star-a">✦</div><div class="hero-star star-b">✧</div><div class="hero-visual"><div class="visual-ribbon">ANIME • STORIES • COMMUNITY</div><div class="visual-title">Your world<br>of anime<span>✦</span></div><div class="visual-foot">DISCOVER SOMETHING EXTRAORDINARY</div></div></div></section>
+    <section class="stats-strip"><div><strong>1980—2026</strong><span>Explore the decades</span></div><div><strong>All genres</strong><span>Find your kind of story</span></div><div><strong>Made for fans</strong><span>Save what you love</span></div></section>
+    <section class="discover section" id="discover"><div class="section-heading"><div><div class="eyebrow">THE ANIME UNIVERSE</div><h2>Discover <span>your next favourite.</span></h2><p>Search the catalogue and narrow it down to exactly what you want to watch.</p></div><div class="live-pill"><span class="pulse"></span> LIVE CATALOGUE</div></div>
+      <div class="filter-panel"><label class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search anime title, Japanese or romaji name…" autocomplete="off"><kbd>↵</kbd></label><div class="filter-grid">
+        <label>GENRE<select id="genreFilter"><option value="">All genres</option><option value="1">Action</option><option value="2">Adventure</option><option value="4">Comedy</option><option value="8">Drama</option><option value="10">Fantasy</option><option value="14">Horror</option><option value="7">Mystery</option><option value="22">Romance</option><option value="24">Sci-Fi</option><option value="36">Slice of Life</option><option value="30">Sports</option><option value="37">Supernatural</option><option value="41">Suspense</option></select></label>
+        <label>YEAR<select id="yearFilter"><option value="">All years</option></select></label><label>FORMAT<select id="typeFilter"><option value="">All formats</option><option value="tv">TV</option><option value="movie">Movie</option><option value="ova">OVA</option><option value="special">Special</option><option value="ona">ONA</option><option value="music">Music</option></select></label><label>SORT BY<select id="sortFilter"><option value="popularity">Most popular</option><option value="score">Highest rated</option><option value="title">A–Z title</option></select></label></div><div class="filter-bottom"><span id="resultSummary">Loading anime catalogue…</span><button id="clearFilters" class="text-button" type="button">Clear filters ↺</button></div></div>
+      <div id="statusMessage" class="status-message" role="status" aria-live="polite">Connecting to the anime catalogue…</div><div id="animeGrid" class="anime-grid" aria-live="polite"></div><div class="pagination"><button id="prevPage" class="page-btn" type="button" disabled>← Previous</button><span id="pageLabel">Page 1</span><button id="nextPage" class="page-btn" type="button">Next →</button></div><p class="data-note">Catalogue data provided by the Jikan API, an unofficial MyAnimeList data API. Availability and results may vary.</p>
+    </section>
+    <section class="watchlist-section section" id="watchlist"><div class="section-heading compact"><div><div class="eyebrow">KEEP YOUR PICKS CLOSE</div><h2>Your <span>watchlist.</span></h2><p>Saved on this device so you can come back to them later.</p></div></div><div id="watchlistGrid" class="anime-grid watchlist-grid"></div><div id="watchlistEmpty" class="empty-state"><span>♡</span><h3>Your list is waiting</h3><p>Tap the heart on any anime to save it here.</p><a href="#discover">Explore the catalogue →</a></div></section>
+    <section class="community section" id="community"><div class="community-card"><div class="community-symbol">✧</div><div><div class="eyebrow">A PLACE FOR FANS</div><h2>Every story deserves<br><span>to be shared.</span></h2><p>The community corner is being prepared. Public reviews and discussions will arrive after secure accounts and moderation are in place.</p><span class="coming-soon">COMMUNITY FEATURES COMING SOON</span></div></div></section>
+  </main>
+  <footer><a class="brand" href="#home"><span class="brand-mark">✦</span><span>Ani<span>Glow</span></span></a><p>Made for the love of anime. Discover responsibly.</p><div class="footer-links"><a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList</a><a href="https://jikan.moe/" target="_blank" rel="noopener noreferrer">Jikan API</a><a href="#discover">Back to top ↑</a></div><small>Anime titles, descriptions and images belong to their respective rights holders. AniGlow is an independent discovery project and is not affiliated with MyAnimeList.</small></footer>
+  <dialog id="detailDialog" class="detail-dialog"><button class="dialog-close" id="closeDialog" aria-label="Close details">×</button><div id="detailContent"></div></dialog>
+</body></html>
