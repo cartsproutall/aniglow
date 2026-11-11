@@ -8,3 +8,9 @@
 /* Faster, resilient poster rendering */
 .poster-wrap img{background:#241735;object-fit:cover}
 .poster-fallback{position:absolute;inset:0;min-height:100%;background:linear-gradient(135deg,#38204e,#21152e)}
+
+/* Room for expanded collections */
+.live-section .anime-grid{align-items:stretch}
+.live-section .anime-card>a{display:block;height:100%}
+.live-section .anime-card .poster-wrap{height:250px}
+@media(max-width:620px){.live-section .anime-card .poster-wrap{height:210px}}
