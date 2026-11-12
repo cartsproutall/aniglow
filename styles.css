@@ -144,3 +144,10 @@
 .detail-selects select{display:block;width:100%;margin-top:6px;padding:10px;background:#130d22;border:1px solid var(--line);border-radius:9px;color:white}
 .detail-confirm-note{font-size:10px!important;color:#a99bbd!important}
 @media(max-width:620px){.detail-layout{grid-template-columns:1fr}.detail-image{max-height:260px}.detail-selects{grid-template-columns:1fr}}
+
+/* Ensure every gift card remains visual even when a remote image is unavailable */
+.product-photo{background:#281936;object-fit:cover}
+.product-fallback{display:grid;min-height:220px;background:radial-gradient(ellipse at 50% 35%,#9869a7,#32203f 70%);text-shadow:0 5px 22px #12091b}
+.product-card .poster-wrap{background:#281936;min-height:200px}
+.detail-image .product-fallback{display:grid;min-height:280px}
+.product-description{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
