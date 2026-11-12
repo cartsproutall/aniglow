@@ -62,7 +62,7 @@ function addLine(id,name,price,details){cart.push({id,name,price,qty:1,details:d
 function renderComboPreview(){
  const chosen=[...document.querySelectorAll('[data-addon-price]:checked')],preview=$('comboPreview');
  if(!chosen.length){preview.innerHTML='<div class="combo-empty">✧<strong>Your thoughtfulness,<br>beautifully wrapped.</strong><small>Select items to preview your gift set</small></div>';$('comboTotal').textContent=PKR(0);return;}
- preview.innerHTML='<div class="combo-collage">'+chosen.map(el=>{const icon=el.dataset.icon||'🎁';return '<div class="combo-piece">'+(el.dataset.image?'<img src="'+el.dataset.image+'" alt="'+safe(el.value)+'" onerror="this.style.display=\'none\'">':'<span>'+icon+'</span>')+'<small>'+safe(el.value.split(' (')[0])+'</small></div>';}).join('')+'</div>';
+ preview.innerHTML='<div class="combo-collage">'+chosen.map(el=>{const icon=el.dataset.icon||'🎁';return '<div class="combo-piece">'+(el.dataset.image?'<img src="'+el.dataset.image+'" alt="'+safe(el.value)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'"><span style="display:none">'+icon+'</span>':'<span>'+icon+'</span>')+'<small>'+safe(el.value.split(' (')[0])+'</small></div>';}).join('')+'</div>';
  $('comboTotal').textContent=PKR(chosen.reduce((sum,el)=>sum+Number(el.dataset.addonPrice||0),0));
 }
 document.querySelectorAll('[data-category]').forEach(b=>b.addEventListener('click',()=>{activeCategory=b.dataset.category;renderCategory();}));
