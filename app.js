@@ -51,7 +51,11 @@ const rows=[
 ['Yotsuba&!',2003,'Manga','Comedy, Slice of Life','A curious little girl discovers everyday wonders in her new neighbourhood.','Kiyohiko Azuma'],
 ['A Bride’s Story',2008,'Manga','Historical, Romance','A young woman’s life unfolds in a richly observed nineteenth-century Central Asian community.','Kaoru Mori'],
 ['Blue Period',2017,'Manga','Drama, Slice of Life','A high-school student discovers a passion for painting and pursues art school.','Tsubasa Yamaguchi'],
-['Look Back',2021,'One-shot','Drama','Two young artists form a creative bond through their shared love of drawing manga.','Tatsuki Fujimoto']
+['Look Back',2021,'One-shot','Drama','Two young artists form a creative bond through their shared love of drawing manga.','Tatsuki Fujimoto'],
+['Solo Leveling',2018,'Manhwa','Action, Fantasy','A low-ranked hunter receives a mysterious opportunity to grow stronger through dangerous challenges.','Chugong'],
+['The Beginning After the End',2018,'Manhwa','Fantasy, Adventure','A powerful former king begins a new life in a world shaped by magic and discovery.','TurtleMe'],
+['Tower of God',2010,'Manhwa','Fantasy, Adventure','A young climber enters a vast tower where each floor brings new trials and alliances.','SIU'],
+['The King’s Avatar',2012,'Manhua','Action, Sports','An expert competitive gamer starts again and works toward returning to the top.','Butterfly Blue']
 ];
 const colors=['#59336f,#21142f','#315b73,#17243d','#85466c,#321b42','#5c4a8c,#211c3b','#8b5a3d,#38233a','#356d68,#1c2e3d','#6d477e,#291c48','#8b5363,#3c203a'];
 const list=rows.map((r,i)=>({id:i+1,title:r[0],year:r[1],type:r[2],genres:r[3].split(', '),synopsis:r[4],author:r[5],colors:colors[i%colors.length],tag:i%3===0?'EDITOR PICK':i%3===1?'MANGA CLASSIC':'READER FAVOURITE'}));
