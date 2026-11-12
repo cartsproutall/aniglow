@@ -66,3 +66,14 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - The custom celebration set previews selected items together in a collage.
 - Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory. Other checkout details are optional.
 - Email notifications require Cloudflare Pages environment variables RESEND_API_KEY, ORDERS_EMAIL and RESEND_FROM, with the sender domain verified at Resend.
+
+
+## Latest storefront changes (November 2026)
+- The catalogue is now a guided four-category selector: Flowers, Cakes, Chocolates and Gift baskets.
+- Flowers include imported roses, Pakistani roses, sunflowers, chrysanthemums, baby breath, gladiolus and gerberas with the requested colour choices.
+- Cakes follow the sequence flavour, delivery city, then bakery.
+- Individual chocolates support quantity selection and quantity-based totals. Listed chocolate bar selling prices are set at roughly twice the selected base estimate.
+- Five gift baskets display itemised contents. Custom baskets support selected items and an additional PKR 2,000 for fresh floral decoration.
+- Custom celebration combinations show a combined visual preview of the selected bouquet, balloons, cake, chocolates, teddy, greeting card, gift wrap and handwritten message.
+- Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory on the order form. Email, city, date, timing, recipient phone, occasion, gift message, collection details and policy acknowledgement are optional.
+- The order endpoint sends a request only after the Resend email service accepts it. Email cannot be delivered until Cloudflare Pages has RESEND_API_KEY, ORDERS_EMAIL and RESEND_FROM configured, and the sender domain is verified in Resend.
