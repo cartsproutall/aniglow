@@ -33,7 +33,25 @@ export async function onRequestPost({ request, env }) {
       "Gift message / instructions: " + (data.message || "None"),
       "", "This is a request only. Confirm supplier availability, final price and collection schedule with the customer."
     ].join("\n");
-    await sendFormspree(env.FORMSPREE_ORDER_ENDPOINT || "https://formspree.io/f/xzerbkev", "Gift order " + reference + " — " + String(data.customerName).slice(0,80), body, data.email || undefined);
+    await sendFormspree(
+      env.FORMSPREE_ORDER_ENDPOINT || "https://formspree.io/f/xzerbkev",
+      "Gift order " + reference + " — " + String(data.customerName).slice(0,80),
+      body,
+      data.email || undefined,
+      {
+        order_reference: reference,
+        order_type: "The Gift Atelier customer order",
+        customer_name: String(data.customerName).slice(0,120),
+        customer_phone: String(data.phone).slice(0,60),
+        customer_email: String(data.email || "").slice(0,160),
+        delivery_city: String(data.city || "").slice(0,80),
+        delivery_address: String(data.address).slice(0,500),
+        recipient_name: String(data.recipient).slice(0,120),
+        delivery_date: String(data.deliveryDate || "").slice(0,30),
+        delivery_window: String(data.deliveryTime || "").slice(0,80),
+        order_total_pkr: String(Number(data.total || 0))
+      }
+    );
     return json({ ok: true, reference });
   } catch (error) {
     return json({ error: error.message || "Order submission failed." }, 500);
