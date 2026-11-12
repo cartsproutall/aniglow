@@ -11,7 +11,8 @@ A managed-order / concierge fulfilment model. Customers anywhere in the world ma
 - Search, category, occasion, city and price sorting filters.
 - Product reference photographs linked from public ecommerce listings; images remain owned by their respective publishers and must be licensed/approved for commercial use before production launch.
 - Cart with quantity controls and estimated totals.
-- PKR 1,500 service charge and PKR 300 delivery charge shown once per order.
+- PKR 1,000 internal service margin included in the customer total but never itemised or named on the storefront; PKR 300 delivery charge is shown at checkout.
+- Standard delivery may arrive any time from 10:00 AM to 10:00 PM. A requested specific one-hour window within that period adds PKR 600, subject to confirmation.
 - Custom gift add-ons: balloons, bouquet, cake, chocolates, teddy, personalised greeting card, gift wrap and message.
 - 24-hour minimum advance booking enforced in the browser date picker.
 - Only Lahore, Karachi, Islamabad and Rawalpindi selectable for delivery.
