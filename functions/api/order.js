@@ -1,4 +1,4 @@
-import { sendBusinessEmail } from "../_utils/email.js";
+import { sendFormspree } from "../_utils/email.js";
 const json = (data, status=200) => new Response(JSON.stringify(data), { status, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
 export async function onRequestPost({ request, env }) {
   try {
@@ -33,7 +33,7 @@ export async function onRequestPost({ request, env }) {
       "Gift message / instructions: " + (data.message || "None"),
       "", "This is a request only. Confirm supplier availability, final price and collection schedule with the customer."
     ].join("\n");
-    await sendBusinessEmail(env, "Gift order " + reference + " — " + String(data.customerName).slice(0,80), body, data.email || undefined);
+    await sendFormspree(env.FORMSPREE_ORDER_ENDPOINT || "https://formspree.io/f/xyewybzd", "Gift order " + reference + " — " + String(data.customerName).slice(0,80), body, data.email || undefined);
     return json({ ok: true, reference });
   } catch (error) {
     return json({ error: error.message || "Order submission failed." }, 500);
