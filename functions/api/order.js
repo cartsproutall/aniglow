@@ -26,7 +26,7 @@ export async function onRequestPost({ request, env }) {
       "ORDER ITEMS", lines, "", "Items subtotal: PKR " + Number(data.subtotal||0).toLocaleString("en-PK"),
       "Delivery: PKR " + Number(data.deliveryFee||300).toLocaleString("en-PK"),
       "Timed-window fee: PKR " + Number(data.timeFee||0).toLocaleString("en-PK"),
-      "Estimated total: PKR " + Number(data.total||0).toLocaleString("en-PK"),
+      "Customer selling total: PKR " + Number(data.total||0).toLocaleString("en-PK"),
       "Payment: Cash to be collected one day before delivery.", "",
       "Gift message / instructions: " + (data.message || "None"),
       "", "This is a request only. Confirm supplier availability, final price and collection schedule with the customer."
