@@ -24,8 +24,8 @@ Prices are indicative sample prices. Layers cake references include live online 
 
 ## Important limitations — not production-ready
 - Email delivery is not active until `RESEND_API_KEY`, `ORDERS_EMAIL` and `RESEND_FROM` are configured in Cloudflare Pages. The sender domain in `RESEND_FROM` must be verified with Resend.
-- No admin order inbox, secure database, customer account, payment gateway, supplier API, order status system, refund workflow, delivery tracking, email notifications, analytics or backups.
-- Browser-only checks can be bypassed; enforce 24-hour booking and city restrictions on a server before launch.
+- No admin order dashboard, order database, customer account, payment gateway, supplier API, order status system, refund workflow, delivery tracking, analytics or backups. Email notifications require the Resend variables listed above.
+- The server-side email endpoints validate required fields, allowed delivery cities and the 24-hour delivery lead time; production should additionally add rate limiting and persistent order storage.
 - No live fulfilment agreement has been established with the named bakeries or other suppliers.
 
 ## Recommended production next steps
