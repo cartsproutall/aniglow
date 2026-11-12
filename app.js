@@ -68,15 +68,15 @@ function filtered(){let q=E.q.value.trim().toLowerCase(),g=({1:'action',2:'adven
 function render(){let out=filtered(),active=!!(E.q.value.trim()||E.g.value||E.y.value||E.t.value);E.grid.hidden=!active;E.pagination.hidden=!active;let pages=Math.max(1,Math.ceil(out.length/per));page=Math.min(page,pages);E.grid.innerHTML=out.slice((page-1)*per,page*per).map(card).join('')||'<div class="empty-state"><h3>No matches found</h3><p>Try another title, year or genre.</p></div>';E.summary.textContent=out.length+' titles in this curated library';E.page.textContent='Page '+page+' of '+pages;E.prev.disabled=page===1;E.next.disabled=page===pages;E.status.textContent=active?'Search results · '+out.length+' matching titles':'Choose a collection or search above.'}
 function readingOptions(a){
  const providers=[
-  {name:'MANGA Plus by SHUEISHA',kind:'Official manga publisher platform',url:'https://mangaplus.shueisha.co.jp/',note:'Selected Shueisha titles; availability and chapter access vary by country.'},
-  {name:'VIZ Manga',kind:'Official publisher platform',url:'https://www.viz.com/apps',note:'Selected VIZ titles; subscription and regional restrictions may apply.'},
-  {name:'K MANGA',kind:'Official Kodansha platform',url:'https://kmanga.kodansha.com/',note:'Selected Kodansha titles; access is region-dependent.'},
-  {name:'BOOK☆WALKER',kind:'Official digital manga store',url:'https://global.bookwalker.jp/',note:'Digital volumes for purchase; catalogue varies by territory.'},
-  {name:'Comikey',kind:'Licensed digital comics platform',url:'https://comikey.com/',note:'Selected licensed manga and comics; check title availability.'},
-  {name:'WEBTOON',kind:'Official webcomics platform',url:'https://www.webtoons.com/',note:'Primarily webcomics and manhwa; not every catalogue title is available.'},
-  {name:'Tapas',kind:'Official digital comics platform',url:'https://tapas.io/',note:'Selected licensed comics and manhwa; check title availability.'}
+  {name:'MANGA Plus by SHUEISHA',kind:'Official publisher platform',domain:'mangaplus.shueisha.co.jp',note:'Selected Shueisha titles; country and chapter access vary.'},
+  {name:'VIZ Manga',kind:'Official publisher platform',domain:'viz.com',note:'Selected VIZ titles; subscription and regional limits may apply.'},
+  {name:'K MANGA',kind:'Official Kodansha platform',domain:'kmanga.kodansha.com',note:'Selected Kodansha titles; regional availability varies.'},
+  {name:'BOOK☆WALKER',kind:'Digital manga store',domain:'global.bookwalker.jp',note:'Digital volumes for purchase; catalogue varies by territory.'},
+  {name:'Comikey',kind:'Licensed digital comics platform',domain:'comikey.com',note:'Selected licensed manga and comics; check availability.'},
+  {name:'WEBTOON',kind:'Official webcomics platform',domain:'webtoons.com',note:'Primarily webcomics and manhwa; not every manga is listed.'},
+  {name:'Tapas',kind:'Digital comics platform',domain:'tapas.io',note:'Selected licensed comics and manhwa; check availability.'}
  ];
- return '<section class="reader-panel"><h3>Where to read '+esc(a.title)+'</h3><p>Choose an authorised platform and search for this title. These services do not carry every manga, and availability, free chapters, subscriptions and territories differ. AniGlow does not host chapters.</p><div class="provider-list">'+providers.map(p=>'<a class="provider-link" href="'+p.url+'" target="_blank" rel="noopener noreferrer"><span><strong>'+esc(p.name)+'</strong><small>'+esc(p.kind)+'</small><small>'+esc(p.note)+'</small></span><b>Visit ↗</b></a>').join('')+'</div><p class="reader-note">No chapter count, volume list or season/arc numbering is invented here. Use the publisher’s own edition and chapter order; some editions group chapters differently.</p></section>';
+ return '<section class="reader-panel"><h3>Find '+esc(a.title)+' on reading platforms</h3><p>Each button searches for this exact title on the named provider’s website domain. Search results do not guarantee that the provider carries the title or that it is available in your country.</p><div class="provider-list">'+providers.map(p=>{let q='site:'+p.domain+' "'+a.title+'"';let url='https://www.google.com/search?q='+encodeURIComponent(q);return '<a class="provider-link" href="'+url+'" target="_blank" rel="noopener noreferrer"><span><strong>'+esc(p.name)+'</strong><small>'+esc(p.kind)+'</small><small>'+esc(p.note)+'</small></span><b>Find title ↗</b></a>'}).join('')+'</div><p class="reader-note">AniGlow does not host chapters. Confirm the exact title, publisher, edition, volume and chapter order on the provider’s official page.</p></section>';
 }
 function communityMarkup(a){
  let key='aniglow-community-'+a.id,items=[];try{items=JSON.parse(localStorage.getItem(key)||'[]')}catch{}
