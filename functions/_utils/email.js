@@ -1,4 +1,4 @@
-export async function sendFormspree(endpoint, subject, textBody, replyTo) {
+export async function sendFormspree(endpoint, subject, textBody, replyTo, extraFields = {}) {
   if (!endpoint || !/^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(endpoint)) {
     throw new Error("The Formspree endpoint is missing or invalid.");
   }
@@ -8,6 +8,7 @@ export async function sendFormspree(endpoint, subject, textBody, replyTo) {
     body: JSON.stringify({
       _subject: subject,
       ...(replyTo ? { _replyto: replyTo, email: replyTo } : {}),
+      ...extraFields,
       message: textBody
     })
   });
