@@ -253,3 +253,6 @@ footer .brand-mark{width:34px;height:34px;min-width:34px}
 .guided-options textarea:focus,.selected-product textarea:focus{outline:2px solid #c77ad9;outline-offset:1px}
 .flower-detail .selected-product>div{min-width:0}
 .flower-detail .selected-product textarea{grid-column:1/-1}
+
+.brand-logo{width:42px;height:42px;object-fit:contain;display:block;flex:0 0 42px;border-radius:12px}
+.payment-collection label{display:block;margin-top:12px}
