@@ -65,7 +65,7 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - Five defined gift baskets list their included contents. Custom baskets allow item selection and floral decoration for an additional PKR 2,000.
 - The custom celebration set previews selected items together in a collage.
 - Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory. Other checkout details are optional.
-- Email notifications require Cloudflare Pages environment variables RESEND_API_KEY, ORDERS_EMAIL and RESEND_FROM, with the sender domain verified at Resend.
+- Email notifications require Cloudflare Pages environment variables RESEND_API_KEY and RESEND_FROM (ORDERS_EMAIL defaults to cartsproutall@gmail.com; it can be overridden in Cloudflare), with the sender domain verified at Resend.
 
 
 ## Latest storefront changes (November 2026)
