@@ -1,3 +1,24 @@
+export async function sendFormspree(endpoint, subject, textBody, replyTo) {
+  if (!endpoint || !/^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(endpoint)) {
+    throw new Error("The Formspree endpoint is missing or invalid.");
+  }
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify({
+      _subject: subject,
+      ...(replyTo ? { _replyto: replyTo, email: replyTo } : {}),
+      message: textBody
+    })
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const detail = Array.isArray(result.errors) ? result.errors.map(item => item.message).join("; ") : "";
+    throw new Error(detail || "Formspree could not accept the order. Please try again.");
+  }
+  return result;
+}
+
 export async function sendBusinessEmail(env, subject, textBody, replyTo) {
   const ordersEmail = env.ORDERS_EMAIL || "cartsproutall@gmail.com";
   if (!env.RESEND_API_KEY || !env.RESEND_FROM) {
