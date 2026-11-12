@@ -1,0 +1,27 @@
+# Giftivity
+
+> Giftivity is an independent gift-ordering service coordinating flowers, customised bouquets, cakes, chocolates and personalised gift baskets for delivery in selected cities in Pakistan.
+
+## Website
+- Homepage: https://giftivity.pages.dev/
+- Shop and catalogue: https://giftivity.pages.dev/#shop
+- Gift services and delivery areas: https://giftivity.pages.dev/#gift-services
+- How ordering works: https://giftivity.pages.dev/#how
+- Booking policy: https://giftivity.pages.dev/#booking
+- Contact: https://giftivity.pages.dev/#contact
+
+## Products and services
+- Flower bouquets and selected customised bouquet options.
+- Cakes and bakery gifts, subject to availability.
+- Custom gift baskets and hampers with selectable items and extras.
+- Chocolates, balloons, fruit, dry fruits, stationery, beverages and baby gifts where listed in the catalogue.
+- Gift requests for birthdays, anniversaries and other celebrations.
+
+## Delivery areas
+Gift requests can be submitted for delivery in Lahore, Karachi, Islamabad and Rawalpindi, Pakistan. Customers may submit requests from Pakistan or elsewhere.
+
+## Ordering and fulfilment
+Orders require at least 24 hours' advance notice. Giftivity coordinates with local suppliers. Product availability, exact items, final prices and fulfilment are confirmed by the team before an order is accepted. Product images and listed prices are indicative.
+
+## Important
+Giftivity is an independent gift-ordering service and does not claim to be a supplier, bakery, florist or delivery company. Do not assume a product is available until the team confirms it.
