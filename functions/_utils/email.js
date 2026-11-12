@@ -1,10 +1,10 @@
-export async function sendFormspree(endpoint, subject, textBody, replyTo, extraFields = {}) {
+export async function sendFormspree(endpoint, subject, textBody, replyTo, extraFields = {}, siteOrigin = "https://aniglow-live.pages.dev") {
   if (!endpoint || !/^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(endpoint)) {
     throw new Error("The Formspree endpoint is missing or invalid.");
   }
   const response = await fetch(endpoint, {
     method: "POST",
-    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    headers: { "Accept": "application/json", "Content-Type": "application/json", "Origin": siteOrigin, "Referer": siteOrigin.replace(/\/$/, "") + "/" },
     body: JSON.stringify({
       _subject: subject,
       ...(replyTo ? { _replyto: replyTo, email: replyTo } : {}),
