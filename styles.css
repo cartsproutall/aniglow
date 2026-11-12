@@ -173,3 +173,25 @@
 .combo-empty{display:flex;flex-direction:column;align-items:center;gap:13px;text-align:center;color:#ffd2eb;font-size:38px}.combo-empty strong{font-size:20px;line-height:1.3}.combo-empty small{font-size:10px;color:#c4b3d3}
 .combo-collage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%}.combo-piece{position:relative;min-height:105px;border-radius:11px;overflow:hidden;background:#3a254b;display:grid;place-items:center;color:#fff}.combo-piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8}.combo-piece span{font-size:38px;position:relative;z-index:1;text-shadow:0 2px 10px #000}.combo-piece small{position:absolute;bottom:0;left:0;right:0;padding:6px;background:#140b20c9;font-size:9px;text-align:center}
 @media(max-width:760px){.guided-shop-layout,.combo-builder{grid-template-columns:1fr}.guided-visual{min-height:210px}.combo-art{min-height:260px}.combo-preview{min-height:240px}}
+
+/* Gift Atelier guided catalogue and checkout additions */
+.flower-row,.selected-product{display:grid;grid-template-columns:88px 1fr;gap:13px;align-items:center;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:13px;background:#140d23}
+.flower-row img,.selected-product img{width:88px;height:92px;object-fit:cover;border-radius:9px}
+.flower-row b,.selected-product b{display:block;font-size:13px}
+.flower-row select,.flower-row input,.selected-product input{display:block;width:100%;margin-top:7px;padding:9px;background:#130d22;border:1px solid var(--line);border-radius:8px;color:white}
+.flower-row small,.selected-product p{display:block;color:var(--muted);font-size:10px;margin:5px 0}
+.basket-addon{display:inline-flex!important;align-items:center;gap:7px;margin:5px 8px 5px 0!important;padding:9px 12px;border:1px solid var(--line);border-radius:9px}
+.basket-control-group{padding:10px 0;border-bottom:1px solid var(--line)}
+.basket-control-group label{display:flex!important;align-items:center;justify-content:space-between;gap:12px}
+.basket-control-group input{width:80px!important}
+.basket-preview-wrap{margin-top:24px;padding:16px;border:1px solid var(--line);border-radius:15px;background:#140d23}
+.basket-preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.basket-preview-item{position:relative;min-height:120px;border-radius:10px;overflow:hidden;background:#342342;display:grid;place-items:center}
+.basket-preview-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8}
+.basket-preview-item span{position:relative;font-size:34px;text-shadow:0 2px 8px #000}
+.basket-preview-item small{position:absolute;bottom:0;left:0;right:0;padding:7px;background:#12091ee8;color:#fff;text-align:center;font-size:10px}
+.basket-preview-empty{padding:35px;text-align:center;color:#d8c8e8}
+.cart-mini{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+.cart-mini button{background:transparent;color:#ff9bd4;border:0;cursor:pointer}
+.selected-product{margin-top:12px}
+@media(max-width:600px){.flower-row,.selected-product{grid-template-columns:72px 1fr}.flower-row img,.selected-product img{width:72px;height:80px}.basket-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
