@@ -4,7 +4,7 @@ export async function onRequestPost({ request, env }) {
   try {
     const data = await request.json();
     const required = ["customerName","phone","address","recipient"];
-    for (const key of required) if (!String(data[key] || "").trim()) return json({ error: "Please complete all required delivery and cash-collection details." }, 400);
+    for (const key of required) if (!String(data[key] || "").trim()) return json({ error: "Please enter the sender full name, sender contact number, receiver full name and complete delivery address." }, 400);
     
     if (data.city && !["Lahore","Karachi","Islamabad","Rawalpindi"].includes(data.city)) return json({ error: "Delivery is available only in Lahore, Karachi, Islamabad and Rawalpindi." }, 400);
     if (!Array.isArray(data.items) || !data.items.length || data.items.length > 30) return json({ error: "Your cart is empty or contains too many items." }, 400);
