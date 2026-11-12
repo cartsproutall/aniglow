@@ -8,7 +8,9 @@ export async function onRequestPost({ request, env }) {
     if (!data.policyAccepted) return json({ error: "Please acknowledge the 24-hour advance booking and cash collection policy." }, 400);
     if (!["Lahore","Karachi","Islamabad","Rawalpindi"].includes(data.city)) return json({ error: "Delivery is available only in Lahore, Karachi, Islamabad and Rawalpindi." }, 400);
     if (!Array.isArray(data.items) || !data.items.length || data.items.length > 30) return json({ error: "Your cart is empty or contains too many items." }, 400);
-    const deliveryStart = new Date(data.deliveryDate + "T10:00:00+05:00");
+    const timeMatch = String(data.deliveryTime).match(/(?:Standard: )?(\d{1,2}) (AM|PM)/i);
+    const startHour = timeMatch ? (Number(timeMatch[1]) % 12) + (timeMatch[2].toUpperCase() === "PM" ? 12 : 0) : 10;
+    const deliveryStart = new Date(data.deliveryDate + "T" + String(startHour).padStart(2,"0") + ":00:00+05:00");
     const earliest = Date.now() + 24 * 60 * 60 * 1000;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(data.deliveryDate) || !Number.isFinite(deliveryStart.getTime()) || deliveryStart.getTime() < earliest) return json({ error: "Please choose a delivery window that begins at least 24 hours from now." }, 400);
     const reference = "GA-" + Date.now().toString(36).toUpperCase();
