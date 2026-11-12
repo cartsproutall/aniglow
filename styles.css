@@ -109,3 +109,15 @@
 .occasion-tile>span{font-size:28px}.booking-section .community-card{margin-top:5px}
 @media(max-width:800px){.order-layout{grid-template-columns:1fr}.custom-gift-panel{grid-template-columns:1fr}.custom-art{min-height:190px}}
 @media(max-width:620px){.addon-grid,.form-two{grid-template-columns:1fr}.product-card .card-info{padding:10px}.product-card .card-title{font-size:12px}.custom-gift-panel{padding:15px}.order-layout>.seller-panel{padding:14px}.cart-line{grid-template-columns:1fr auto}}
+
+.product-description{font-size:10px;line-height:1.55;color:#bcaecc;min-height:46px;margin:6px 0 2px}
+.payment-collection{padding:14px;border:1px solid #d28fd955;border-radius:12px;background:#241633}
+.payment-collection h4{margin:0 0 5px;color:#ffe0f2;font-size:13px}
+.payment-collection p{margin:0 0 12px;color:#bcaecc;font-size:10px;line-height:1.6}
+.payment-collection label{margin-top:8px}
+#collectionAddressWrap[hidden]{display:none}
+.website-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}
+.contact-panel{max-width:720px;margin:0 auto}
+.contact-panel .sell-form{padding:4px}
+.sell-form button:disabled{opacity:.6;cursor:wait}
+@media(max-width:700px){.filter-grid{grid-template-columns:1fr 1fr}.product-description{min-height:0}}
