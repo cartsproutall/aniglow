@@ -195,3 +195,5 @@
 .cart-mini button{background:transparent;color:#ff9bd4;border:0;cursor:pointer}
 .selected-product{margin-top:12px}
 @media(max-width:600px){.flower-row,.selected-product{grid-template-columns:72px 1fr}.flower-row img,.selected-product img{width:72px;height:80px}.basket-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.image-disclaimer{display:block;position:relative;margin:6px 0 10px;color:#a99bbd;font-size:9px;line-height:1.45;font-weight:400}.flower-row .image-disclaimer{grid-column:1/-1}.selected-product{align-items:start}.selected-product>.image-disclaimer{grid-column:1/-1}.guided-visual .image-disclaimer{z-index:2;position:absolute;left:10px;right:10px;bottom:7px;padding:5px 7px;border-radius:6px;background:#130d22d9;color:#f0e5f6;text-align:center}.basket-preview-wrap .image-disclaimer{margin-top:9px;text-align:center}
