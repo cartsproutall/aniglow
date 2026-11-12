@@ -55,3 +55,14 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - Free handwritten message add-on remains PKR 0.
 - Delivery and timed delivery charges are separate. No extra PKR 1,000 service fee is added at checkout.
 - The site uses representative photography; confirm actual supplier item, branch and availability before accepting payment.
+
+
+## Guided catalogue and checkout
+- Four guided categories: flowers, cakes, chocolates and gift baskets.
+- Flowers include imported roses, Pakistani roses, sunflowers, chrysanthemums, baby breath, gladiolus and gerberas with the requested colour choices.
+- Cakes follow flavour, delivery city, then bakery selection.
+- Individual chocolates support quantity selection and calculate quantity totals; bar prices are doubled from the chosen base estimates.
+- Five defined gift baskets list their included contents. Custom baskets allow item selection and floral decoration for an additional PKR 2,000.
+- The custom celebration set previews selected items together in a collage.
+- Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory. Other checkout details are optional.
+- Email notifications require Cloudflare Pages environment variables RESEND_API_KEY, ORDERS_EMAIL and RESEND_FROM, with the sender domain verified at Resend.
