@@ -17,21 +17,21 @@ A managed-order / concierge fulfilment model. Customers anywhere in the world ma
 - 24-hour minimum advance booking enforced in the browser date picker.
 - Only Lahore, Karachi, Islamabad and Rawalpindi selectable for delivery.
 - Order request fields: sender, email, phone, city, full address, recipient, delivery date/time, occasion and message.
-- Uses Cloudflare Pages Functions. Order notifications are sent through the configured Formspree order form; contact notifications remain on the existing Resend route until a separate Formspree contact endpoint is supplied.
+- Uses Cloudflare Pages Functions and two separate Formspree forms: one for order notifications and one for Contact Us enquiries.
 
 ## Price and supplier notes
 Prices are indicative sample prices. Layers cake references include live online gift-retailer listings; Tehzeeb dry-cake starting price references Tehzeeb's own category page. Flowers, hampers, toys, children's clothing and add-ons use estimates or comparable listings and require direct supplier confirmation. No bakery, florist, retailer or brand is a confirmed supplier or partner. Product availability, exact product, branch-level pricing, delivery coverage and image rights must be agreed before accepting payment.
 
 ## Important limitations — not production-ready
-- Order email delivery depends on the Formspree order form being active and its recipient email being configured/verified in Formspree. Contact email still requires the existing Resend configuration until its Formspree endpoint is added.
-- No admin order dashboard, order database, customer account, payment gateway, supplier API, order status system, refund workflow, delivery tracking, analytics or backups. Contact email still requires the Resend variables until the separate Formspree contact form is integrated.
+- Email delivery depends on both Formspree forms being active and their recipient email being configured/verified in Formspree.
+- No admin order dashboard, order database, customer account, payment gateway, supplier API, order status system, refund workflow, delivery tracking, analytics or backups.
 - The server-side email endpoints validate required fields, allowed delivery cities and the 24-hour delivery lead time; production should additionally add rate limiting and persistent order storage.
 - No live fulfilment agreement has been established with the named bakeries or other suppliers.
 
 ## Recommended production next steps
 1. Choose final brand/domain and set up a dedicated business email.
 2. Contact suppliers in each city; secure written reseller/fulfilment permission, price lists, lead times, delivery areas, packaging rules, cancellation/refund and image-use permissions.
-3. Configure Formspree recipient verification for orders and connect the separate contact endpoint; add an order database and admin dashboard before scaling.
+3. Configure and verify the recipient email for both Formspree forms; add an order database and admin dashboard before scaling.
 4. Add payment only after confirming Pakistan merchant eligibility and a compliant refund process.
 5. Add privacy policy, terms, supplier/brand disclaimers, customer support details and tax/accounting process.
 6. Test fulfilment end-to-end in all four cities before advertising publicly.
@@ -65,7 +65,7 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - Five defined gift baskets list their included contents. Custom baskets allow item selection and floral decoration for an additional PKR 2,000.
 - The custom celebration set previews selected items together in a collage.
 - Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory. Other checkout details are optional.
-- Order notifications use the Formspree endpoint configured in `functions/api/order.js` (or `FORMSPREE_ORDER_ENDPOINT` in Cloudflare Pages). Set the Formspree recipient to `cartsproutall@gmail.com` and complete any email verification. Contact notifications still use Resend pending the separate contact endpoint.
+- Order notifications use `https://formspree.io/f/xyewybzd` (overridable with `FORMSPREE_ORDER_ENDPOINT` in Cloudflare Pages). Contact Us enquiries use `https://formspree.io/f/xeagqpop` (overridable with `FORMSPREE_CONTACT_ENDPOINT`). Set the recipient to `cartsproutall@gmail.com` and complete any Formspree email verification for each form.
 
 
 ## Latest storefront changes (November 2026)
@@ -76,4 +76,4 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - Five gift baskets display itemised contents. Custom baskets support selected items and an additional PKR 2,000 for fresh floral decoration.
 - Custom celebration combinations show a combined visual preview of the selected bouquet, balloons, cake, chocolates, teddy, greeting card, gift wrap and handwritten message.
 - Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory on the order form. Email, city, date, timing, recipient phone, occasion, gift message, collection details and policy acknowledgement are optional.
-- The order endpoint sends a request only after Formspree accepts it. Configure and verify `cartsproutall@gmail.com` as the recipient in the Formspree order form. The separate contact endpoint still uses Resend until its Formspree endpoint is integrated.
+- The order and contact endpoints send requests only after their respective Formspree forms accept them. Configure and verify `cartsproutall@gmail.com` as the recipient in both forms.
