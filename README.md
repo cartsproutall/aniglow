@@ -65,7 +65,7 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - Five defined gift baskets list their included contents. Custom baskets allow item selection and floral decoration for an additional PKR 2,000.
 - The custom celebration set previews selected items together in a collage.
 - Only sender full name, sender contact number, receiver full name and complete delivery address are mandatory. Other checkout details are optional.
-- Order notifications use `https://formspree.io/f/xzerbkev` (overridable with `FORMSPREE_ORDER_ENDPOINT` in Cloudflare Pages). Contact Us enquiries use `https://formspree.io/f/xeagqpop` (overridable with `FORMSPREE_CONTACT_ENDPOINT`). Set the recipient to `cartsproutall@gmail.com` and complete any Formspree email verification for each form.
+- Order notifications use `https://formspree.io/f/xzerbkev` (overridable with `FORMSPREE_ORDER_ENDPOINT` in Cloudflare Pages). Contact Us enquiries use `https://formspree.io/f/mzerbkrv` (overridable with `FORMSPREE_CONTACT_ENDPOINT`). Set the recipient to `cartsproutall@gmail.com` and complete any Formspree email verification for each form.
 
 
 ## Latest storefront changes (November 2026)
