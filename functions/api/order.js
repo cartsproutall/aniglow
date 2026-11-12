@@ -8,10 +8,9 @@ export async function onRequestPost({ request, env }) {
     if (!data.policyAccepted) return json({ error: "Please acknowledge the 24-hour advance booking and cash collection policy." }, 400);
     if (!["Lahore","Karachi","Islamabad","Rawalpindi"].includes(data.city)) return json({ error: "Delivery is available only in Lahore, Karachi, Islamabad and Rawalpindi." }, 400);
     if (!Array.isArray(data.items) || !data.items.length || data.items.length > 30) return json({ error: "Your cart is empty or contains too many items." }, 400);
-    const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Karachi" }));
-    today.setHours(0,0,0,0); today.setDate(today.getDate()+1);
-    const minDate = [today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(data.deliveryDate) || data.deliveryDate < minDate) return json({ error: "Please choose a delivery date at least one day ahead." }, 400);
+    const deliveryStart = new Date(data.deliveryDate + "T10:00:00+05:00");
+    const earliest = Date.now() + 24 * 60 * 60 * 1000;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(data.deliveryDate) || !Number.isFinite(deliveryStart.getTime()) || deliveryStart.getTime() < earliest) return json({ error: "Please choose a delivery window that begins at least 24 hours from now." }, 400);
     const reference = "GA-" + Date.now().toString(36).toUpperCase();
     const lines = data.items.map(item => "- " + String(item.name).slice(0,120) + " x " + Math.max(1,Math.min(30,Number(item.quantity)||1)) + " — PKR " + Math.max(0,Number(item.lineTotal)||0).toLocaleString("en-PK")).join("\n");
     const body = [
