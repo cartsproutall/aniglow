@@ -9,9 +9,9 @@ A managed-order / concierge fulfilment model. Customers anywhere in the world ma
 - International-style, multi-category gift storefront.
 - Categories: flowers and bouquets; cakes and bakery; gift baskets and hampers; chocolates and edible gifts; children's gifts and toys; children's clothing; balloons and add-ons; personalised gifts.
 - Search, category, occasion, city and price sorting filters.
-- Product reference photographs linked from public ecommerce listings; images remain owned by their respective publishers and must be licensed/approved for commercial use before production launch.
+- Product photography uses selected public-domain / CC0 representative images where available; product photographs are illustrative and do not guarantee an exact supplier item.
 - Cart with quantity controls and estimated totals.
-- PKR 1,000 internal service margin included in the customer total but never itemised or named on the storefront; PKR 300 delivery charge is shown at checkout.
+- A PKR 1,000 margin is included in each paid product and paid add-on selling price; it is not shown as a separate fee. Complimentary message add-ons remain free. PKR 300 delivery is shown separately.
 - Standard delivery is 10:00 AM–5:00 PM. A selected two-hour delivery window from 10:00 AM–10:00 PM adds PKR 300, subject to confirmation.
 - Custom gift add-ons: balloons, bouquet, cake, chocolates, teddy, personalised greeting card, gift wrap and message.
 - 24-hour minimum advance booking enforced in the browser date picker.
@@ -47,4 +47,11 @@ Static prototype: repository root, `index.html` entry point, no build command re
 - Cash is collected one day before the scheduled delivery from the sender's collection address or the recipient's delivery address.
 - No card payment is advertised or collected in this release.
 - Product and supplier prices are indicative reference prices, not supplier quotations. Verify branch-level availability, product size, exact contents and final price before confirming an order.
-- The internal PKR 1,000 service margin remains included in the estimate but is not displayed as a separate checkout line.
+- The PKR 1,000 margin is included in each paid product/add-on selling price; there is no separate service-margin line.
+
+
+## Retail pricing rule
+- Each catalogue product and paid gift extra is displayed at its selected base cost plus PKR 1,000.
+- Free handwritten message add-on remains PKR 0.
+- Delivery and timed delivery charges are separate. No extra PKR 1,000 service fee is added at checkout.
+- The site uses representative photography; confirm actual supplier item, branch and availability before accepting payment.
