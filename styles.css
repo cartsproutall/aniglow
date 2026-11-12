@@ -217,3 +217,31 @@
 .brand-mark{display:block;width:38px;height:38px;min-width:38px;border-radius:11px;object-fit:cover;background:#241332;box-shadow:0 4px 16px #e98dc933}
 footer .brand-mark{width:34px;height:34px;min-width:34px}
 .flower-availability-note{margin:10px 0 4px;padding:11px 13px;border:1px solid #d99acb55;border-radius:10px;background:#241633;color:#d9c9e7;font-size:10px;line-height:1.65}
+
+/* Flower custom bouquet builder */
+.flower-mode{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 16px}
+.flower-mode-btn,.secondary-flower-btn{border:1px solid #d4a0e955;border-radius:10px;background:#20142f;color:#e9d8f5;padding:11px 12px;font-size:11px;font-weight:750;cursor:pointer}
+.flower-mode-btn.active{background:linear-gradient(100deg,#d981d9,#9d7aff);color:#1c1030;border-color:transparent}
+.optional-tag{display:inline-block;margin-left:4px;color:#c4a4d7;font-size:9px;font-weight:500}
+.flower-availability-note{margin-top:16px}
+.custom-flower-row{display:grid;grid-template-columns:1.15fr .7fr .9fr auto;align-items:end;gap:9px;margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#160e24}
+.custom-flower-row label{display:block;margin:0;color:#d8c8e8;font-size:10px}
+.custom-flower-row select,.custom-flower-row input{display:block;width:100%;margin-top:6px;padding:10px;background:#130d22;border:1px solid var(--line);border-radius:8px;color:#fff;min-width:0}
+.custom-flower-row .muted{grid-column:1/-1;margin:0}
+.remove-flower-row{border:0;background:transparent;color:#ff9bc9;font-size:10px;cursor:pointer;padding:8px}
+.secondary-flower-btn{margin:8px 0}
+.bouquet-flow-wrap{margin:14px 0;padding:13px;border:1px solid #d19ce844;border-radius:13px;background:#120b20}
+.bouquet-flow{display:flex;align-items:stretch;gap:8px;overflow-x:auto;padding:7px 2px 13px}
+.flow-node,.flow-final{flex:0 0 155px;min-width:155px;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:12px;border:1px solid #d6a0e955;border-radius:11px;background:linear-gradient(145deg,#342044,#1b122a);text-align:center}
+.flow-node b,.flow-final b{font-size:11px;color:#fff}
+.flow-node small,.flow-final small{font-size:9px;line-height:1.5;color:#c9b5d9}
+.flow-node strong,.flow-final strong{font-size:11px;color:#ffc7e8}
+.flow-final{border-color:#f0a7d9;background:linear-gradient(145deg,#52305a,#251332)}
+.flow-arrow{align-self:center;flex:0 0 auto;color:#f0a8dc;font-size:23px}
+.flow-empty{padding:20px;color:#b5a8c9;font-size:10px;text-align:center;width:100%}
+.custom-bouquet-total{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+.custom-bouquet-total span{font-size:11px;color:#e4d5f0}
+.custom-bouquet-total strong{font-size:18px;color:#ffc7e8}
+.custom-bouquet-total small{flex-basis:100%;font-size:9px;color:#a99bbd}
+#customFlowerPanel[hidden],#readyFlowerPanel[hidden]{display:none!important}
+@media(max-width:650px){.custom-flower-row{grid-template-columns:1fr 1fr}.custom-flower-row label:first-child{grid-column:1/-1}.remove-flower-row{justify-self:start}.flower-mode{grid-template-columns:1fr}.flow-node,.flow-final{flex-basis:140px;min-width:140px}}
