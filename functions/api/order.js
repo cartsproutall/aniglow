@@ -34,7 +34,7 @@ export async function onRequestPost({ request, env }) {
       "", "This is a request only. Confirm supplier availability, final price and collection schedule with the customer."
     ].join("\n");
     await sendFormspree(
-      env.FORMSPREE_ORDER_ENDPOINT || "https://formspree.io/f/xzerbkev",
+      "https://formspree.io/f/xzerbkev",
       "Gift order " + reference + " — " + String(data.customerName).slice(0,80),
       body,
       data.email || undefined,
