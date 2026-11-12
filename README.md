@@ -1,4 +1,4 @@
-# The Gift Atelier — Managed Gift Ordering Service
+# Giftivity — Managed Gift Ordering Service
 
 This repository was repurposed from the AniGlow prototype into a customer-facing gift and celebration ordering service. The existing dark-purple and pink theme, responsive card layout, glowing accents, navigation and interaction styling have been retained.
 
