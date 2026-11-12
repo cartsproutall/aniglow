@@ -245,3 +245,11 @@ footer .brand-mark{width:34px;height:34px;min-width:34px}
 .custom-bouquet-total small{flex-basis:100%;font-size:9px;color:#a99bbd}
 #customFlowerPanel[hidden],#readyFlowerPanel[hidden]{display:none!important}
 @media(max-width:650px){.custom-flower-row{grid-template-columns:1fr 1fr}.custom-flower-row label:first-child{grid-column:1/-1}.remove-flower-row{justify-self:start}.flower-mode{grid-template-columns:1fr}.flow-node,.flow-final{flex-basis:140px;min-width:140px}}
+
+
+/* Consistent dark-theme fields for optional customer requests */
+.guided-options textarea,.selected-product textarea,.guided-options input[type=text]{display:block;width:100%;max-width:100%;box-sizing:border-box;margin-top:7px;padding:11px 12px;background:#130d22;border:1px solid var(--line);border-radius:9px;color:#fff;font:inherit;font-size:12px;line-height:1.5;resize:vertical;min-height:76px}
+.guided-options textarea::placeholder,.selected-product textarea::placeholder{color:#a99bbd;opacity:1}
+.guided-options textarea:focus,.selected-product textarea:focus{outline:2px solid #c77ad9;outline-offset:1px}
+.flower-detail .selected-product>div{min-width:0}
+.flower-detail .selected-product textarea{grid-column:1/-1}
