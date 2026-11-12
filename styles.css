@@ -29,3 +29,28 @@
 .community-post small,.no-posts{font-size:10px;color:#a99bbd}
 @media(max-width:620px){.provider-list{grid-template-columns:1fr}.provider-link{padding:11px}.anime-card:hover,.anime-card:focus-visible{transform:translateY(-3px) scale(1.01)}}
 @media(prefers-reduced-motion:reduce){.anime-card,.poster-art,.provider-link,.heart-btn,.primary-btn,.page-btn,.detail-actions button,.community-form button,.topbar nav a{transition:none}}
+
+/* Compact two-shelf manga discovery layout */
+.search-wrap{gap:10px}
+.search-brand-mark{flex:0 0 28px;width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(135deg,#d78bff,#ff7ebc);color:#241032;font-size:17px;box-shadow:0 3px 0 #09051188}
+.search-symbol{font-size:23px;color:#e5b2ff}
+.search-results[hidden],.pagination[hidden]{display:none!important}
+.shelf-carousel{position:relative;display:flex;align-items:center;gap:12px}
+.shelf-track{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:8px 5px 18px;flex:1;scrollbar-width:none}
+.shelf-track::-webkit-scrollbar{display:none}
+.shelf-track .anime-card{flex:0 0 clamp(145px,18vw,205px);scroll-snap-align:start}
+.shelf-arrow{flex:0 0 44px;width:44px;height:44px;border:1px solid #e1b0ff99;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#e8b5ff,#a27aff);color:#271238;font-size:30px;line-height:1;box-shadow:0 5px 0 #09051188,0 9px 18px #0005;cursor:pointer;transition:transform .18s,box-shadow .18s,filter .18s}
+.shelf-arrow:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 8px 0 #09051188,0 14px 22px #0006;filter:brightness(1.08)}
+.shelf-arrow:active{transform:translateY(1px) scale(.97);box-shadow:0 2px 0 #09051188}
+.community-dropdown{margin-top:20px;border:1px solid #c18aff55;border-radius:15px;background:linear-gradient(145deg,#251936,#191126);overflow:hidden}
+.community-dropdown summary{display:flex;align-items:center;gap:10px;padding:15px 17px;cursor:pointer;list-style:none;font-size:14px;font-weight:750}
+.community-dropdown summary::-webkit-details-marker{display:none}
+.community-dropdown summary:after{content:'+';margin-left:auto;color:#efb4ff;font-size:21px}
+.community-dropdown[open] summary:after{content:'−'}
+.community-dropdown summary small{font-size:10px;color:#bcaecc;font-weight:400}
+.community-dropdown-body{padding:0 16px 16px}
+.community-dropdown .community-form{margin-top:8px}
+.community-dropdown .community-posts{max-height:230px;overflow:auto;padding-right:4px}
+.community-dropdown .community-post{margin-top:8px}
+@media(max-width:620px){.shelf-carousel{gap:6px}.shelf-arrow{flex-basis:36px;width:36px;height:36px;font-size:25px}.shelf-track{gap:11px}.shelf-track .anime-card{flex-basis:148px}.search-wrap{padding:0 10px}}
+@media(prefers-reduced-motion:reduce){.shelf-track{scroll-behavior:auto}.shelf-arrow{transition:none}}
