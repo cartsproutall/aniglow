@@ -11,8 +11,8 @@ A managed-order / concierge fulfilment model. Customers anywhere in the world ma
 - Search, category, occasion, city and price sorting filters.
 - Product photography uses selected public-domain / CC0 representative images where available; product photographs are illustrative and do not guarantee an exact supplier item.
 - Cart with quantity controls and estimated totals.
-- A PKR 1,000 margin is included in each paid product and paid add-on selling price; it is not shown as a separate fee. Complimentary message add-ons remain free. PKR 300 delivery is shown separately.
-- Standard delivery is 10:00 AM–5:00 PM. A selected two-hour delivery window from 10:00 AM–10:00 PM adds PKR 300, subject to confirmation.
+- A PKR 1,000 margin is included in each paid product and paid add-on selling price; it is not shown as a separate fee. Complimentary message add-ons remain free. Standard delivery is free; an optional two-hour delivery window adds PKR 300.
+- Standard delivery is free (10:00 AM–5:00 PM). A selected two-hour delivery window from 10:00 AM–10:00 PM adds PKR 300, subject to confirmation.
 - Custom gift add-ons: balloons, bouquet, cake, chocolates, teddy, personalised greeting card, gift wrap and message.
 - 24-hour minimum advance booking enforced in the browser date picker.
 - Only Lahore, Karachi, Islamabad and Rawalpindi selectable for delivery.
@@ -43,7 +43,7 @@ Static prototype: repository root, `index.html` entry point, no build command re
 ## Updated delivery and payment rules
 - Minimum one-day advance booking; the customer acknowledges that the request is not instantly confirmed.
 - Standard delivery: 10:00 AM–5:00 PM, preselected.
-- Timed delivery: selectable two-hour windows from 10:00 AM to 10:00 PM, PKR 300 additional.
+- Standard delivery is free. Timed delivery: selectable two-hour windows from 10:00 AM to 10:00 PM, PKR 300 additional.
 - Cash is collected one day before the scheduled delivery from the sender's collection address or the recipient's delivery address.
 - No card payment is advertised or collected in this release.
 - Product and supplier prices are indicative reference prices, not supplier quotations. Verify branch-level availability, product size, exact contents and final price before confirming an order.
@@ -53,7 +53,7 @@ Static prototype: repository root, `index.html` entry point, no build command re
 ## Retail pricing rule
 - Each catalogue product and paid gift extra is displayed at its selected base cost plus PKR 1,000.
 - Free handwritten message add-on remains PKR 0.
-- Delivery and timed delivery charges are separate. No extra PKR 1,000 service fee is added at checkout.
+- Standard delivery is free. An optional two-hour timed delivery window costs PKR 300. No extra PKR 1,000 service fee is added at checkout.
 - The site uses representative photography; confirm actual supplier item, branch and availability before accepting payment.
 
 
